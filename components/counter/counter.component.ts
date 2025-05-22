@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,5 +15,11 @@ export class CounterComponent {
   }
   decrement() {
     this.counter.update(value => value - 1);
+  }
+
+  constructor() {
+    effect(() => {
+      console.log('Counter value changed:', this.counter());
+    });
   }
 }
