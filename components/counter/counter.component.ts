@@ -1,4 +1,4 @@
-import { Component, signal, effect } from '@angular/core';
+import { Component, signal, effect, ViewEncapsulation, input, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,18 +8,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './counter.component.scss'
 })
 export class CounterComponent {
-  counter = signal(0);
+  counter = model(0, { alias: 'initialValue' });
+
+  constructor() {
+    effect(() => {
+      console.log('Counter value changed:', this.counter());
+    });
+  }
 
   increment() {
     this.counter.update(value => value + 1);
   }
   decrement() {
     this.counter.update(value => value - 1);
-  }
-
-  constructor() {
-    effect(() => {
-      console.log('Counter value changed:', this.counter());
-    });
   }
 }

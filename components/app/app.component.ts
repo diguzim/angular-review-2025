@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from '../counter/counter.component';
 
@@ -10,4 +10,6 @@ import { CounterComponent } from '../counter/counter.component';
 })
 export class AppComponent {
   title = 'angular-review-2025';
+
+  counter = signal(0);
 }
