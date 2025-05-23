@@ -9,7 +9,12 @@ import { CounterComponent } from '../counter/counter.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
   title = 'angular-review-2025';
 
   counter = signal(0);
+
+  onCounterChange($event: number) {
+    this.counter.set($event);
+  }
 }

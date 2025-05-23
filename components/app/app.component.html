@@ -1,2 +1,2 @@
 <p>Outer Counter: {{counter()}}</p>
-<app-counter [(initialValue)]="counter" />
+<app-counter [initialValue]="counter()" (initialValueChange)="onCounterChange($event)" />
