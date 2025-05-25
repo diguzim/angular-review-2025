@@ -1,15 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from '../counter/counter.component';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CounterComponent],
+  imports: [RouterOutlet, CounterComponent, CardComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-
   title = 'angular-review-2025';
 
   counter = signal(0);

@@ -1,2 +1,9 @@
 <p>Outer Counter: {{counter()}}</p>
 <app-counter [initialValue]="counter()" (initialValueChange)="onCounterChange($event)" />
+<app-card>
+  <div card-title>Card Title</div>
+  <div card-body>
+    <p>Card Body</p>
+    <p>Counter: {{counter()}}</p>
+  </div>
+</app-card>
