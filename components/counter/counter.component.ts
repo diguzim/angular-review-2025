@@ -1,4 +1,4 @@
-import { Component, signal, effect, ViewEncapsulation, input, model } from '@angular/core';
+import { Component, signal, effect, ViewEncapsulation, input, model, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,13 +10,25 @@ import { CommonModule } from '@angular/common';
     '[attr.aria-counter-value]': 'counter()',
   }
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit, OnChanges, OnDestroy {
   counter = model(0, { alias: 'initialValue' });
 
   constructor() {
     effect(() => {
       console.log('Counter value changed:', this.counter());
     });
+  }
+
+  ngOnInit() {
+    console.log('CounterComponent initialized');
+  }
+
+  ngOnChanges() {
+    console.log('CounterComponent changes detected');
+  }
+
+  ngOnDestroy() {
+    console.log('CounterComponent destroyed');
   }
 
   increment() {
