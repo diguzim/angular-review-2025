@@ -5,7 +5,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-counter',
   imports: [CommonModule],
   templateUrl: './counter.component.html',
-  styleUrl: './counter.component.scss'
+  styleUrl: './counter.component.scss',
+  host: {
+    '[attr.aria-counter-value]': 'counter()',
+  }
 })
 export class CounterComponent {
   counter = model(0, { alias: 'initialValue' });
