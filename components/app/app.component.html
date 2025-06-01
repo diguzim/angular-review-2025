@@ -1,4 +1,5 @@
 <p>Outer Counter: {{counter()}}</p>
+<p>Inner Counter (retrieved with children queries): {{ counterComponentInnerCounterValue() }}</p>
 <app-counter [initialValue]="counter()" (initialValueChange)="onCounterChange($event)" />
 <app-card>
   <div card-title>Card Title</div>

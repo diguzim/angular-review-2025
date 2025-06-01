@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from '../counter/counter.component';
 import { CardComponent } from '../card/card.component';
@@ -11,6 +11,9 @@ import { CardComponent } from '../card/card.component';
 })
 export class AppComponent {
   title = 'angular-review-2025';
+  
+  counterComponent = viewChild(CounterComponent);
+  counterComponentInnerCounterValue = computed(() => this.counterComponent()?.counter());
 
   counter = signal(0);
 
